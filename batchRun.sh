@@ -5,7 +5,7 @@ PROGNAME=$(basename "$0")
 if [ "$#" -eq 1 ]; then
     ipFile=$1
 elif [ "$#" -eq 2 ]; then
-    password=$1
+    registrarIP=$1
     ipFile=$2
 elif [ "$#" -eq 3 ]; then
     ipFile=$3

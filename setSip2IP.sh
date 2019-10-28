@@ -5,7 +5,7 @@ auth="admin:admin"
 if [ "$#" -eq 1 ]; then
     ip=$1
 elif [ "$#" -eq 2 ]; then
-    auth=admin:$1
+    registrarIP=$1
     ip=$2
 elif [ "$#" -eq 3 ]; then
     registrarIP=$1
