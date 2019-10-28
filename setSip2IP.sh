@@ -55,19 +55,10 @@ externalServer="dsdsd"
 # 1 = SIP Secondary context
 eContextType="1"
 
-
-echo "AUTH is ${auth}"
 b64auth=$(echo -n ${auth} | base64)
-echo "IP is ${ip}"
-echo "b64 is ${b64auth}"
-
 
 session=$( curl -H "Authorization: LSBasic ${b64auth}" -H "Content-Type: application/json" http://$ip/rest/new | awk -F\" '/session/ { print $4 }' )
 echo "SESSION is ${session}"
 
-
 curl -H "Authorization: LSBasic ${b64auth}" -H "Content-Type: application/json" --data "{\"call\":\"Comm_setSipDetails\",\"params\":{\"pSipDetails\":{\"bIsSipEnabled\":${bIsSipEnabled},\"userName\":\"${userName}\",\"authName\":\"${authName}\",\"authPassword\":\"${authPassword}\",\"eSipServerType\":\"${serverType}\",\"sStructAuto\":{\"bIsRegistrarEnabled\":${bIsRegistrarEnabled},\"registrarHostName\":\"${registrarHostName}\",\"bIsProxyEnabled\":${bIsProxyEnabled},\"proxyHostName\":\"${proxyHostName}\",\"bUseProxyForRegistration\":${bUseProxyForRegistration},\"transport\":\"${transport}\"},\"sStructOCSManual\":{\"bIsTransportTCP\":${bIsTransportTCP},\"internalServer\":\"${internalServer}\",\"externalServer\":\"${externalServer}\"}},\"eContextType\":${eContextType}}}" http://${ip}/rest/request/${session}
-
-
-
 
