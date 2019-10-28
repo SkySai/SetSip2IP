@@ -3,8 +3,8 @@ CURL against Icon API to configure sip reg 2 - specifically the Sip2 registrar I
 
 USAGE: You can invoke this script in two ways
 
-- ./setSip2IP.sh <registrarIP> <password> <ExampleFile.txt>
-- ./batchRun.sh <registrarIP> <password> <ExampleFile.txt>
+- ./setSip2IP.sh registrarIP password ExampleFile.txt
+- ./batchRun.sh registrarIP password ExampleFile.txt
   
 Notes* <br />
 Customer will need a Linux or MAC machine with CURL utility installed.  
